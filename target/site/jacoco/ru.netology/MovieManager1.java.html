@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MovieManager1.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MovieManager1</a> &gt; <a href="index.source.html" class="el_package">ru.netology</a> &gt; <span class="el_source">MovieManager1.java</span></div><h1>MovieManager1.java</h1><pre class="source lang-java linenums">package ru.netology;
+
+public class MovieManager1 {
+<span class="fc" id="L4">    private Film[] items = new Film[0];</span>
+
+    public void save(Film item) {
+<span class="fc" id="L7">        int length = items.length + 1;</span>
+<span class="fc" id="L8">        Film[] tmp = new Film[length];</span>
+<span class="fc bfc" id="L9" title="All 2 branches covered.">        for (int i = 0; i &lt; items.length; i++) {</span>
+<span class="fc" id="L10">            tmp[i] = items[i];</span>
+        }
+<span class="fc" id="L12">        int lastIndex = tmp.length - 1;</span>
+<span class="fc" id="L13">        tmp[lastIndex] = item;</span>
+<span class="fc" id="L14">        items = tmp;</span>
+<span class="fc" id="L15">    }</span>
+
+    public Film[] findAll() {
+<span class="fc" id="L18">        return items;</span>
+    }
+
+
+<span class="fc" id="L22">    private int limit = 10;</span>
+
+<span class="fc" id="L24">    public MovieManager1() {</span>
+<span class="fc" id="L25">    }</span>
+
+<span class="fc" id="L27">    public MovieManager1(int limit) {</span>
+<span class="fc" id="L28">        this.limit = limit;</span>
+<span class="fc" id="L29">    }</span>
+
+
+    public Film[] getAll() {
+        int resultLength;
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        if (limit &gt; items.length) {</span>
+<span class="fc" id="L35">            resultLength = items.length;</span>
+        } else {
+<span class="fc" id="L37">            resultLength = limit;</span>
+        }
+<span class="fc" id="L39">        Film[] items = findAll();</span>
+<span class="fc" id="L40">        Film[] result = new Film[resultLength];</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        for (int i = 0; i &lt; resultLength; i++) {</span>
+<span class="fc" id="L42">            int index = items.length - i - 1;</span>
+<span class="fc" id="L43">            result[i] = items[index];</span>
+        }
+<span class="fc" id="L45">        return result;</span>
+    }
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
